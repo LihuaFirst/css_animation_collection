@@ -7,7 +7,7 @@ const config = {
 	localhostPort: 8080,
 	scripts: true,     // Turn on/off script tasks
 	styles: true,      // Turn on/off styles tasks 
-	cacheBust: true   // Turn on/off cacheBust tasks
+	cacheBust: false   // Turn on/off cacheBust tasks
 }
 
 /**
@@ -54,7 +54,7 @@ const paths = {
 		output: 'dist/css/'
 	},
 	html: {
-		input: 'scr/*.html',
+		input: 'src/*.html',
 		output: 'dist/'
 	},
 	assets: {

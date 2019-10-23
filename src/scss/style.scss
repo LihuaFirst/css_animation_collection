@@ -1,0 +1,153 @@
+/* Fonts */
+
+@import url('https://fonts.googleapis.com/css?family=Press+Start+2P&display=swap');
+
+/* Color */
+
+$purple: #540D6E;
+$pink: #EE4266;
+$yellow: #FFD23F;
+$teal: #00C2D1;
+$green: #0EAD69;
+$blue: #27187E;
+$orange: #FF8600;
+$grey-light: #e3e3e3;
+$white: #fff;
+
+
+$start-color: #da22ff;
+$end-color: #9733ee;
+
+	
+/* Gradients */
+
+$gradients: linear-gradient(to top, $start-color, $end-color);
+
+/* Mixins */
+
+// text gradient
+@mixin text-gradient($start-color, $end-color) {
+	// creates an image mask using bg gradients
+	background-image: -webkit-linear-gradient(to top, $start-color, $end-color);
+	background-image: -moz-linear-gradient(to top, $start-color, $end-color);
+	background-image: -ms-linear-gradient(to top, $start-color, $end-color);
+	background-image: -o-linear-gradient(to top, $start-color, $end-color);
+	background-image: linear-gradient(to top, $start-color, $end-color);
+	// prepares the text for masking 
+	color: transparent;
+	// creates clipping mask with text
+	-webkit-background-clip: text;
+	background-clip: text;
+}
+
+// rotate hand
+@mixin rotate-hand($angle) {
+	-webkit-transform: rotate($angle);
+	-moz-transform: rotate($angle);
+	-ms-transform: rotate($angle);
+	transform: rotate($angle);
+}
+
+
+.b-block {
+	position: relative;
+	min-height: 300px;
+}
+
+.b-block-container {
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+}
+
+// Day 1
+#section-1 {
+	background: $gradients no-repeat;
+}
+
+.b-block-speechbubble {
+	width: 500px;
+	height: 120px;
+	background: $white;
+	border-radius: 100px;
+	border: 10px;
+	cursor: pointer;
+	filter: drop-shadow(3px 7px 0px $grey-light);
+	
+	// completed speech bubble
+	&:after, 
+	&:before {
+		width: 0;
+		height: 0;
+		border-left: 20px solid transparent;
+		border-right: 20px solid transparent;
+		border-top: 30px solid $white;
+		content: "";
+		top: 120px;
+		position: absolute;
+		left: 100px;
+		right: 0;
+		margin: auto;
+	}
+	// speech bubble before transition
+	&:before {
+		top: 120px;
+		border-top: 40px solid #fff;
+		border-left: 40px solid transparent;
+		border-right: 44px solid transparent;
+	}
+}
+
+.b-block-hello {
+	font-family: 'Press Start 2P', cursive;
+	font-size: 1.75rem;
+	line-height: 120px;
+	text-align: center;
+	filter: drop-shadow(2px 7px 0px $grey-light);
+	@include text-gradient($start-color,
+	$end-color);
+	
+}
+
+.b-block-hands {
+	display: inline-block;
+	width: 60px;
+	margin-left: 1rem;
+}
+
+.fas {
+	color: $yellow;
+	font-size: 3rem;
+}
+
+// switch icons when hover on speech bubble
+.b-block-speechbubble:hover .fa-hand-paper,
+.b-block-speechbubble .fa-hand-spock {
+	display: none;
+}
+
+.b-block-speechbubble:hover .fa-hand-spock {
+	display: inline-block;
+}
+
+.fa-hand-paper {
+	animation-name: wave;
+	animation-duration: 1s;
+	animation-iteration-count: infinite;
+	animation-direction: alternate;
+}
+
+/* Keyframes */
+
+// hand wave animation
+@keyframes wave {
+	0% {
+		// rotate hand down
+		@include rotate-hand(30deg);
+	}
+	100% {
+		// rotate hand down
+		@include rotate-hand(-10deg);
+	}
+}
