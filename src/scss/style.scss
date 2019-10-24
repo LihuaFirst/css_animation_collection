@@ -1,83 +1,15 @@
-@import 'base';
-@import 'mixins';
+@import 'day1';
+@import 'day2';
 
-/* Day 1: Hello World */
-#block-1 {
-	background: $gradients no-repeat;
-}
-
-.b-hello-speechbubble {
-	min-width: 450px;
-	height: 120px;
-	line-height: 120px;
-	background: $white;
-	border-radius: 100px;
-	border: 10px;
-	cursor: pointer;
-	filter: drop-shadow(3px 7px 0px $grey-light);
-	animation: widthpop 2s ease-out;
+.b-block {
+	position: relative;
+	min-height: 300px;
 }
 
-// completed speech bubble
-.b-hello-speechbubble:after {
-  width: 0;
-  height: 0;
-  border-left: 20px solid transparent;
-  border-right: 20px solid transparent;
-  border-top: 25px solid #fff;
-  content: "";
-  top: 120px;
-  position: absolute;
-  left: 100px;
-  right: 0;
-  margin: auto;
-  animation: move 0.8s ease;
-}
-// speech bubble before transition
-.b-hello-speechbubble:before {
-  @extend .b-hello-speechbubble:after;
-  top: 120px;
-  border-left: 22px solid transparent;
-  border-right: 22px solid transparent;
-  border-top: 24px solid #fff;
+.b-block-container {
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
 }
 
-.b-hello-text {
-	font-family: 'Press Start 2P', cursive;
-	font-size: 1.75rem;
-	line-height: 2rem;
-	text-align: center;
-	vertical-align: middle;
-	filter: drop-shadow(2px 7px 0px $grey-light);
-	@include text-gradient($start-color, $end-color);
-	opacity: 0;
-	animation: fadein 2s 0.8s forwards;
-}
-
-.b-hello-icon {
-	display: inline-block;
-	width: 60px;
-	margin-left: 1rem;
-	vertical-align: bottom;
-}
-
-.em {
-	color: $yellow;
-	font-size: 2rem;
-}
-
-.em-spock-hand,
-.em-hand {
-	animation: handwave 0.5s infinite alternate;
-	@include transform-origin(50% 100%);
-}
-
-// switch icons when hover on speech bubble
-.b-hello-speechbubble:hover .em-hand,
-.b-hello-speechbubble .em-spock-hand {
-	display: none;
-}
-
-.b-hello-speechbubble:hover .em-spock-hand {
-	display: inline-block;
-}

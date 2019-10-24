@@ -74,7 +74,7 @@ function cacheBust(){
     return src([paths.input + '/index.html'])
         //.pipe(replace(/cb=\d+/g, 'cb=' + cbString))
 		  .pipe(replace('style.min.css', 'style'+fileVersion+'.min.css'))
-		  .pipe(replace('main.min.js', 'main'+fileVersion+'.min.css'))
+		  .pipe(replace('main.min.js', 'main'+fileVersion+'.min.js'))
         .pipe(dest(paths.output));
 }
 
@@ -192,13 +192,13 @@ exports.default = series(
 
 /* Export for testing purpose
    TODO: comment out / remove after testing
+  */
 exports.cleanDist = cleanDist;
-exports.copyVendor = copyVendor;
 exports.connectServer = connectServer;
 exports.cssTranspile = cssTranspile;
-exports.jsTranspile = jsTranspile;
 exports.cssMinify = cssMinify;
+exports.jsTranspile = jsTranspile;
 exports.jsMinify = jsMinify;
 exports.cacheBust = cacheBust;
-exports.html = html;
-*/
+exports.htmlTask = htmlTask;
+exports.pugTask = pugTask;

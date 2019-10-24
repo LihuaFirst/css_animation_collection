@@ -1,0 +1,229 @@
+/* Color */
+
+$grey-light: #e3e3e3;
+$white: #fff;
+$black: #000;
+
+/* Gradients */
+
+$start-color: #da22ff;
+$end-color: #9733ee;
+
+/* Fonts */
+
+@import url('https://fonts.googleapis.com/css?family=Press+Start+2P&display=swap');
+
+/* Mixins */
+
+// text gradient
+@mixin text-gradient($start-color,
+$end-color) {
+  // fallback text color
+  color: $start-color;
+  // creates clipping mask with text
+  -webkit-text-fill-color: transparent;
+  -webkit-background-clip: text;
+  background-clip: text;
+  // creates an image mask using bg gradients
+  background-image: -webkit-linear-gradient(to top, $start-color, $end-color);
+  background-image: -moz-linear-gradient(to top, $start-color, $end-color);
+  background-image: -ms-linear-gradient(to top, $start-color, $end-color);
+  background-image: -o-linear-gradient(to top, $start-color, $end-color);
+  background-image: linear-gradient(to top, $start-color, $end-color);
+}
+
+@mixin text-background($img-path) {
+  background: url($img-path) center;
+  background-size: contain;
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
+}
+
+// rotate hand
+@mixin rotate-hand($angle) {
+  -webkit-transform: rotate($angle);
+  -moz-transform: rotate($angle);
+  -ms-transform: rotate($angle);
+  transform: rotate($angle);
+}
+
+// transform origin
+@mixin transform-origin($origin_values) {
+  -webkit-transform-origin: $origin_values;
+  -moz-transform-origin: $origin_values;
+  -ms-transform-origin: $origin_values;
+  transform-origin: $origin_values;
+}
+
+
+/* Day 1: Hello World */
+
+#block-1 {
+  background: linear-gradient(to top, $start-color, $end-color) no-repeat;
+}
+
+.b-hello-speechbubble {
+  min-width: 450px;
+  height: 120px;
+  line-height: 120px;
+  background: $white;
+  border-radius: 100px;
+  border: 10px;
+  cursor: pointer;
+  filter: drop-shadow(3px 7px 0px $grey-light);
+  animation: widthpop 2s ease-out;
+}
+
+// completed speech bubble
+.b-hello-speechbubble:after,
+.b-hello-speechbubble:before{
+  width: 0;
+  height: 0;
+  border-left: 20px solid transparent;
+  border-right: 20px solid transparent;
+  border-top: 25px solid #fff;
+  content: "";
+  top: 120px;
+  position: absolute;
+  left: 100px;
+  right: 0;
+  margin: auto;
+  animation: move 0.8s ease;
+}
+
+// speech bubble before transition
+.b-hello-speechbubble:before {
+  top: 120px;
+  border-left: 22px solid transparent;
+  border-right: 22px solid transparent;
+  border-top: 24px solid #fff;
+}
+
+.b-hello-text {
+  font-family: 'Press Start 2P', cursive;
+  font-size: 1.75rem;
+  line-height: 2rem;
+  text-align: center;
+  //vertical-align: middle;
+  filter: drop-shadow(2px 7px 0px $grey-light);
+  //@include text-gradient($start-color, $end-color);
+  @include text-background('../assets/img/bg_purple.jpg');
+  //opacity: 0;
+  //animation: fadein 2s 0.8s forwards;
+  animation: bgmoving 10s infinite ease-in;
+}
+
+.b-hello-icon {
+  display: inline-block;
+  width: 60px;
+  margin-left: 1rem;
+  vertical-align: bottom;
+}
+
+.em {
+  font-size: 2rem;
+}
+
+.em-spock-hand,
+.em-hand {
+  animation: handwave 1s infinite alternate ease-out;
+  @include transform-origin(50% 100%);
+}
+
+// switch icons when hover on speech bubble
+.b-hello-speechbubble:hover .em-hand,
+.b-hello-speechbubble .em-spock-hand {
+  display: none;
+}
+
+.b-hello-speechbubble:hover .em-spock-hand {
+  display: inline-block;
+}
+
+.b-block {
+  position: relative;
+  min-height: 300px;
+}
+
+.b-block-container {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.absolute-center {
+  display: flex; // make us of Flexbox
+  align-items: center; // does vertically center the desired content
+  justify-content: center; // horizontally centers single line items
+  text-align: center; // optional, but helps horizontally center text that breaks into multiple lines
+}
+
+
+/* Keyframes */
+
+// hand wave animation
+@keyframes handwave {
+  0% {
+    // rotate hand down
+    @include rotate-hand(-30deg);
+  }
+  100% {
+    // rotate hand down
+    @include rotate-hand(10deg);
+  }
+}
+
+// fade in
+@keyframes fadein {
+  0% {
+    opacity: 0;
+  }
+  50% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+// background moving
+@keyframes bgmoving {
+  0% {
+    background-position: 0 0;
+  }
+  50% {
+    background-position: 50% 50%;
+  }
+  100% {
+    background-position: 100% 0;
+  }
+}
+
+// width pop 
+@keyframes widthpop {
+  0% {
+    transform: scaleX(0.2)
+  }
+  40% {
+    transform: scaleX(1.5)
+  }
+  100% {
+    transform: scaleX(1)
+  }
+}
+
+// moves the speech bubble tooltip
+@keyframes movetooltip {
+  0% {
+    top: 50px;
+    left: -10px;
+  }
+  50% {
+    left: 50px;
+  }
+  100% {
+    left: 100px;
+  }
+}
