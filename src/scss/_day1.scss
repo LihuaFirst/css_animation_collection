@@ -1,8 +1,6 @@
 /* Color */
-
 $grey-light: #e3e3e3;
 $white: #fff;
-$black: #000;
 
 /* Gradients */
 
@@ -63,7 +61,7 @@ $end-color) {
   background: linear-gradient(to top, $start-color, $end-color) no-repeat;
 }
 
-.b-hello-speechbubble {
+.block-hello__speechbubble {
   min-width: 450px;
   height: 120px;
   line-height: 120px;
@@ -76,8 +74,8 @@ $end-color) {
 }
 
 // completed speech bubble
-.b-hello-speechbubble:after,
-.b-hello-speechbubble:before{
+.block-hello__speechbubble:after,
+.block-hello__speechbubble:before{
   width: 0;
   height: 0;
   border-left: 20px solid transparent;
@@ -93,14 +91,14 @@ $end-color) {
 }
 
 // speech bubble before transition
-.b-hello-speechbubble:before {
+.block-hello__speechbubble:before {
   top: 120px;
   border-left: 22px solid transparent;
   border-right: 22px solid transparent;
   border-top: 24px solid #fff;
 }
 
-.b-hello-text {
+.block-hello__text {
   font-family: 'Press Start 2P', cursive;
   font-size: 1.75rem;
   line-height: 2rem;
@@ -109,12 +107,14 @@ $end-color) {
   filter: drop-shadow(2px 7px 0px $grey-light);
   //@include text-gradient($start-color, $end-color);
   @include text-background('../assets/img/bg_purple.jpg');
-  //opacity: 0;
-  //animation: fadein 2s 0.8s forwards;
-  animation: bgmoving 10s infinite ease-in;
+  /* animate fade in*/
+  opacity: 0;
+  animation: fadein 2s 0.8s forwards;
+  /* animate moving background */
+  //animation: bgmoving 10s infinite ease-in;
 }
 
-.b-hello-icon {
+.block-hello__icon {
   display: inline-block;
   width: 60px;
   margin-left: 1rem;
@@ -132,34 +132,14 @@ $end-color) {
 }
 
 // switch icons when hover on speech bubble
-.b-hello-speechbubble:hover .em-hand,
-.b-hello-speechbubble .em-spock-hand {
+.block-hello__speechbubble:hover .em-hand,
+.block-hello__speechbubble .em-spock-hand {
   display: none;
 }
 
-.b-hello-speechbubble:hover .em-spock-hand {
+.block-hello__speechbubble:hover .em-spock-hand {
   display: inline-block;
 }
-
-.b-block {
-  position: relative;
-  min-height: 300px;
-}
-
-.b-block-container {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-}
-
-.absolute-center {
-  display: flex; // make us of Flexbox
-  align-items: center; // does vertically center the desired content
-  justify-content: center; // horizontally centers single line items
-  text-align: center; // optional, but helps horizontally center text that breaks into multiple lines
-}
-
 
 /* Keyframes */
 

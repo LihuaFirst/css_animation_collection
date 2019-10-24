@@ -1,15 +1,21 @@
 @import 'day1';
 @import 'day2';
 
-.b-block {
+.block {
 	position: relative;
 	min-height: 300px;
 }
 
-.b-block-container {
+.block-container {
 	position: absolute;
 	top: 50%;
 	left: 50%;
 	transform: translate(-50%, -50%);
 }
 
+.absolute-center {
+  display: flex; // make us of Flexbox
+  align-items: center; // does vertically center the desired content
+  justify-content: center; // horizontally centers single line items
+  text-align: center; // optional, but helps horizontally center text that breaks into multiple lines
+}

@@ -1,45 +1,42 @@
-/* Color */
 
-//$purple: #540D6E;
-//$pink: #EE4266;
-//$yellow: #FFD23F;
-//$teal: #00C2D1;
-//$green: #0EAD69;
-//$blue: #27187E;
-//$orange: #FF8600;
-
-$grey-light: #e3e3e3;
-$white: #fff;
-$black: #000;
+// Pokeball Variables
+$pokeballSize: 200px;
+$pokeballInnerSize: 80px;
+$pokeballBorderSize: 15px;
+$pokeballInnerBorderSize: 4px;
+$black: black;
 $red: #ea0623;
+$white: white;
 
 
+// Sky Variables
+$beige: #fffaf0;
+$sky: linear-gradient(to bottom, #020107 0%, #201b46 40%);
+$skyRadius: 600px;
+$star1ScrollDuration: 100s;
+$star2ScrollDuration: 125s;
+$star3ScrollDuration: 175s;
+$starStartOffset: 500px;
+$star1Size: 1px;
+$star2Size: 2px;
+$star3Size: 3px;
+$star1Count: 800;
+$star2Count: 700;
+$star3Count: 300;
 
-/* Gradients */
-
-$start-color: #da22ff;
-$end-color: #9733ee;
-$gradients: linear-gradient(to top, $start-color, $end-color);
-
-/* Fonts */
-@import url('https://fonts.googleapis.com/css?family=Press+Start+2P&display=swap');
-
-
-.b-block {
-	position: relative;
-	min-height: 300px;
+/* Day 2: Pokeball */
+#block-2 {
+  background: $beige;
+  min-height: 430px;
 }
 
-.b-block-container {
-	position: absolute;
-	top: 50%;
-	left: 50%;
-	transform: translate(-50%, -50%);
+.circle-container {
+  position: absolute;
+  overflow: hidden;
+  width: 400px;
+  height: 400px;
+  border-radius: 100%;
+  background: $sky;
 }
 
-.absolute-center {
-  display: flex; // make us of Flexbox
-  align-items: center; // does vertically center the desired content
-  justify-content: center; // horizontally centers single line items
-  text-align: center; // optional, but helps horizontally center text that breaks into multiple lines
-}
+
