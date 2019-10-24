@@ -17,7 +17,8 @@
 	<!-- font awesome -->
 	<script src="https://kit.fontawesome.com/255fca5b41.js" crossorigin="anonymous"></script>
 
-	<!-- <link href="https://afeld.github.io/emoji-css/emoji.css" rel="stylesheet">-->
+	<!-- emoji -->
+	<link href="https://afeld.github.io/emoji-css/emoji.css" rel="stylesheet">
 
 	<!-- customize css -->
 	<link rel="stylesheet" href="css/style.min.css">
@@ -30,15 +31,26 @@
 		<div class="container">
 			<h1>CSS Animation</h1>
 
-			<h2>Day 1: Hello World </h2>
-			<section class="b-block" id="section-1">
-				<div class="b-block-container">
-					<div class="b-block-speechbubble">
-						<h3 class="b-block-hello">Hello World<span class="b-block-hands"><i class="fas fa-hand-paper"></i><i class="fas fa-hand-spock"></i></span></h3>
+			<section id="section-1">
+				<h2>Day 1: Hello World </h2>
+				
+				<div class="b-block" id="block-1">
+					<div class="b-block-container">
+						<div class="b-hello-speechbubble absolute-center">
+							<h3 class="b-hello-text">Hello World<span class="b-hello-icon"><i class="em em-hand" aria-role="presentation" aria-label="RAISED HAND"></i><i class="em em-spock-hand" aria-role="presentation" aria-label="RAISED HAND WITH PART BETWEEN MIDDLE AND RING FINGERS"></i></span></h3>
+						</div>
 					</div>
 				</div>
-
+				
+				<h3>Feature</h3>
+				<ul>
+					<li>Knockout text: experiment with <code>background-clip:text</code>&nbsp;<i class="fas fa-flask"></i> using gradient as text background </li>
+					<li>Hand wave: keyframe transform rotate down and up</li>
+					<li>Switch icon when hover over container </li>
+					<li>Absolute center using flexbox <code>.absolute-center</code></li>
+				</ul>
 			</section>
+
 
 		</div>
 	</body>

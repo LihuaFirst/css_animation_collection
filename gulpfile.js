@@ -26,6 +26,7 @@ const del = require('del');
 const rename = require('gulp-rename');
 const connect = require('gulp-connect');
 const htmlhint = require("gulp-htmlhint");
+const pug = require("gulp-pug");
 
 
 // Scripts
@@ -57,10 +58,14 @@ const paths = {
 		input: 'src/*.html',
 		output: 'dist/'
 	},
+	pug: {
+		input: 'src/*.pug',
+		output: 'dist/'
+	},
 	assets: {
 		input: 'src/assets/**/*',
 		output: 'dist/assets/'
-	}
+	}	
 };
 
 // Cachebust
@@ -123,7 +128,7 @@ function jsMinify(){
 		 .pipe(uglify())
 		 .pipe(rename({	
 			suffix: fileVersion + ".min"			
-		 }))  // rename to *.min.css
+		 }))  // rename to *.min.js
 		 .pipe(dest(paths.scripts.output)); // put final js in dist folder
 }
 
@@ -143,6 +148,12 @@ function htmlTask() {
 		.pipe(connect.reload());
 };
 
+// Pug
+function pugTask() {
+	return src([paths.pug.input])
+		.pipe(pug())
+		.pipe(dest(paths.pug.output))
+}
 // run a webserver (with Livereload)
 function connectServer(done) {
 	var options = {
@@ -158,6 +169,7 @@ function connectServer(done) {
 // If any change, run scss and js tasks simultaneously
 function watchTask(done) {
 	watch(paths.input+'/*.html', htmlTask);
+	watch(paths.input+'/*.pug', pugTask);
 	watch(paths.styles.input, series(cssTranspile, cssMinify));
 	watch(paths.scripts.input, series(jsTranspile, jsMinify));
 	done();
@@ -169,9 +181,10 @@ function watchTask(done) {
 // then runs connectServer, then watch task
 exports.default = series(
 	cleanDist,
+	copyAssets,
 	parallel(cssTranspile, jsTranspile),
 	parallel(cssMinify, jsMinify),
-	parallel(htmlTask, copyAssets),
+	parallel(htmlTask, pugTask),
 	cacheBust,
 	connectServer,
 	watchTask

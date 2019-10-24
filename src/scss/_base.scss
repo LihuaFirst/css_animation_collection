@@ -1,0 +1,40 @@
+/* Color */
+
+$purple: #540D6E;
+$pink: #EE4266;
+$yellow: #FFD23F;
+$teal: #00C2D1;
+$green: #0EAD69;
+$blue: #27187E;
+$orange: #FF8600;
+$grey-light: #e3e3e3;
+$white: #fff;
+
+/* Gradients */
+
+$start-color: #da22ff;
+$end-color: #9733ee;
+$gradients: linear-gradient(to top, $start-color, $end-color);
+
+/* Fonts */
+@import url('https://fonts.googleapis.com/css?family=Press+Start+2P&display=swap');
+
+
+.b-block {
+	position: relative;
+	min-height: 300px;
+}
+
+.b-block-container {
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+}
+
+.absolute-center {
+  display: flex; // make us of Flexbox
+  align-items: center; // does vertically center the desired content
+  justify-content: center; // horizontally centers single line items
+  text-align: center; // optional, but helps horizontally center text that breaks into multiple lines
+}
