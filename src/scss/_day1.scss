@@ -1,11 +1,15 @@
+/* Day 1: Hello World */
+/* Credit https://codepen.io/acupoftee/pen/daoqOg
+ */
+
 /* Color */
 $grey-light: #e3e3e3;
 $white: #fff;
 
 /* Gradients */
 
-$start-color: #da22ff;
-$end-color: #9733ee;
+$hello-start-color: #da22ff;
+$hello-end-color: #9733ee;
 
 /* Fonts */
 
@@ -14,20 +18,20 @@ $end-color: #9733ee;
 /* Mixins */
 
 // text gradient
-@mixin text-gradient($start-color,
-$end-color) {
+@mixin text-gradient($hello-start-color,
+$hello-end-color) {
   // fallback text color
-  color: $start-color;
+  color: $hello-start-color;
   // creates clipping mask with text
   -webkit-text-fill-color: transparent;
   -webkit-background-clip: text;
   background-clip: text;
   // creates an image mask using bg gradients
-  background-image: -webkit-linear-gradient(to top, $start-color, $end-color);
-  background-image: -moz-linear-gradient(to top, $start-color, $end-color);
-  background-image: -ms-linear-gradient(to top, $start-color, $end-color);
-  background-image: -o-linear-gradient(to top, $start-color, $end-color);
-  background-image: linear-gradient(to top, $start-color, $end-color);
+  background-image: -webkit-linear-gradient(to top, $hello-start-color, $hello-end-color);
+  background-image: -moz-linear-gradient(to top, $hello-start-color, $hello-end-color);
+  background-image: -ms-linear-gradient(to top, $hello-start-color, $hello-end-color);
+  background-image: -o-linear-gradient(to top, $hello-start-color, $hello-end-color);
+  background-image: linear-gradient(to top, $hello-start-color, $hello-end-color);
 }
 
 @mixin text-background($img-path) {
@@ -54,11 +58,8 @@ $end-color) {
   transform-origin: $origin_values;
 }
 
-
-/* Day 1: Hello World */
-
 #block-1 {
-  background: linear-gradient(to top, $start-color, $end-color) no-repeat;
+  background: linear-gradient(to top, $hello-start-color, $hello-end-color) no-repeat;
 }
 
 .block-hello__speechbubble {
@@ -105,7 +106,7 @@ $end-color) {
   text-align: center;
   //vertical-align: middle;
   filter: drop-shadow(2px 7px 0px $grey-light);
-  //@include text-gradient($start-color, $end-color);
+  //@include text-gradient($hello-start-color, $hello-end-color);
   @include text-background('../assets/img/bg_purple.jpg');
   /* animate fade in*/
   opacity: 0;

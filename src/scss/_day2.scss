@@ -1,17 +1,19 @@
+/* Day 2 Pokeball 
+ * Credit https://codepen.io/acupoftee/pen/pGgrgo
+ */
 
 // Pokeball Variables
-$pokeballSize: 200px;
-$pokeballInnerSize: 80px;
-$pokeballBorderSize: 15px;
-$pokeballInnerBorderSize: 4px;
+$pokeball-size: 200px;
+$pokeball-size-inner: 60px;
+$pokeball-border-size: 15px;
+$pokeball-border-size-inner: 4px;
 $black: black;
 $red: #ea0623;
 $white: white;
 
-
 // Sky Variables
-$beige: #fffaf0;
-$sky: linear-gradient(to bottom, #020107 0%, #201b46 40%);
+$pokeball-bg: #fffaf0;
+$pokeball-sky: linear-gradient(to bottom, #020107 0%, #201b46 40%);
 $skyRadius: 600px;
 $star1ScrollDuration: 100s;
 $star2ScrollDuration: 125s;
@@ -24,10 +26,16 @@ $star1Count: 800;
 $star2Count: 700;
 $star3Count: 300;
 
+
 /* Day 2: Pokeball */
 #block-2 {
-  background: $beige;
+  background: $pokeball-bg;
   min-height: 430px;
+  *, 
+  ::after, 
+  ::before{
+    box-sizing: content-box;
+  }
 }
 
 .circle-container {
@@ -36,7 +44,149 @@ $star3Count: 300;
   width: 400px;
   height: 400px;
   border-radius: 100%;
-  background: $sky;
+  background: $pokeball-sky;
+}
+.relative-center {
+  position: relative;
+  top: 0;
+  bottom: 0;
+  margin: auto;
+  transform: translate(-50%, -50%);
+}
+
+// pokeball styles
+.pokeball {  
+  width: $pokeball-size;
+  height: $pokeball-size;
+  border-radius: 100%;
+  border: $pokeball-border-size solid $black;
+  top: 105px;
+  z-index: 2;
+  overflow: hidden;
+  background: $white;
+  box-shadow: inset -10px 0 0 10px #ccc;
+  &:before,
+  &:after {
+    content: "";
+    position: absolute;
+  }
+  // render red part first
+  &:before {
+    background: $red;
+    width: 100%;
+    height: 50%;
+  }
+  // render black bar after
+  &:after {
+    background: $black;
+    top: calc(50% - 10px);
+    width: 100%;
+    height: 20px;
+  }
+}
+
+// pokeball center button/ring
+.pokeball-button,
+.pokeball-ring {
+  position: absolute;
+  width: $pokeball-size-inner;
+  height: $pokeball-size-inner;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);  
+  background: $white;
+  border: $pokeball-border-size solid $black;
+  border-radius: 100%;
+  z-index: 3;
+  animation: blink 0.2s alternate 19 0.2s, glowing 1s ease-in-out 5s;
+}
+
+.pokeball-ring {
+  width: 45px;
+  height: 45px;
+  border: $pokeball-border-size-inner solid $black;
+}
+
+// light reflections
+.pokeball-shine,
+.pokeball-shine-small {
+  position: absolute;
+  height: 10px;
+  width: 30px;
+  border-radius: 200px;
+  background: #fff;
+  opacity: 0.5;
+  left: 30px;
+  top: 25px;
+  transform: rotate(-44deg);
+}
+
+.pokeball-shine-small {
+  width: 10px;
+  left: 18px;
+  top: 50px;
+}
+// pokeball animation
+.animate {
+  animation: fall 0.6s ease-in-out, sway 2s ease-in-out infinite;
+  transform-origin: bottom center;
+  transition: all 0.5s ease;
 }
 
 
+/* Keyframes */
+// blinking animation because we caught a pokemon!
+@keyframes blink {
+  from {
+    background: #e74c3c;
+    box-shadow: 0px 0px 30px #e74c3c;
+    //border-color: #ef8b80;
+  }
+  to {
+    background: $white;
+  }
+}
+// glowing animation, because it's ours!
+@keyframes glowing {
+  50% {
+    box-shadow: 0px 0px 60px #fff;
+    border-color: #595959;
+  }
+}
+
+// fall anination with bounces
+@keyframes fall {
+  0% {
+    top: -110px;
+  }
+  35% {
+    top: 105px;
+  }
+  50% {
+    top: 70px;
+  }
+  65% {
+    top: 105px;
+  }
+  85% {
+    top: 85px;
+  }
+  100% {
+    top: 105px;
+  }
+}
+// pokeball sway keyframes
+@keyframes sway {
+  0% {
+    left: -2%;
+    transform: rotate(-10deg);
+  }
+  50% {
+    left: 5%;
+    transform: rotate(10deg);
+  }
+  100% {
+    left: -2%;
+    transform: rotate(-10deg);
+  }
+}

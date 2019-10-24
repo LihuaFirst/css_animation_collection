@@ -38,8 +38,10 @@ const uglify  = config.scripts ? require('gulp-uglify-es').default : null;
 // Styles
 const sass = config.styles ? require('gulp-sass') : null;
 const sourcemaps = config.styles ? require('gulp-sourcemaps') : null;
+const autoprefixer = config.styles ? require('gulp-autoprefixer') : null;
 const cssnano = config.styles ? require('gulp-cssnano') : null;
 const postcss = config.styles ? require('gulp-postcss') : null;
+
 
 
 // File paths to project folders
@@ -90,7 +92,8 @@ function cssTranspile() {
 	
 	return src(paths.styles.input)
 		.pipe(sourcemaps.init()) // initialize sourcemaps first
-		.pipe(sass())  // compile SCSS to CSS			
+		.pipe(sass())  // compile SCSS to CSS	
+      .pipe(postcss([autoprefixer, cssnano]))
 		.pipe(sourcemaps.write('.')) // write sourcemaps file in current directory
 		.pipe(dest(paths.styles.output)) // put final CSS in dist folder
 		.pipe(connect.reload());
