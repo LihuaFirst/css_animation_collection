@@ -14,17 +14,26 @@ $white: white;
 // Sky Variables
 $pokeball-bg: #fffaf0;
 $pokeball-sky: linear-gradient(to bottom, #020107 0%, #201b46 40%);
-$skyRadius: 600px;
-$star1ScrollDuration: 100s;
-$star2ScrollDuration: 125s;
-$star3ScrollDuration: 175s;
-$starStartOffset: 500px;
-$star1Size: 1px;
-$star2Size: 2px;
-$star3Size: 3px;
-$star1Count: 800;
-$star2Count: 700;
-$star3Count: 300;
+
+// Grass Variables
+$grass-back-color: #01636f;
+$grass-middle-color: #3295ac;
+$grass-front-color: #203a43;
+$grass-blade-height: 300px;
+$grass-blade-border-radius: 100px;
+
+// Star Variables
+$sky-radius: 600px;
+$star-scroll-duration-1: 100s;
+$star-scroll-duration-2: 125s;
+$star-scroll-duration-3: 175s;
+$star-start-offset: 500px;
+$star-size-1: 1px;
+$star-size-2: 2px;
+$star-size-3: 3px;
+$star-count-1: 800;
+$star-count-2: 700;
+$star-count-3: 300;
 
 
 /* Day 2: Pokeball */
@@ -38,7 +47,7 @@ $star3Count: 300;
   }
 }
 
-.circle-container {
+.block__container--circle {
   position: absolute;
   overflow: hidden;
   width: 400px;
@@ -46,6 +55,8 @@ $star3Count: 300;
   border-radius: 100%;
   background: $pokeball-sky;
 }
+
+// helper class
 .relative-center {
   position: relative;
   top: 0;
@@ -55,7 +66,7 @@ $star3Count: 300;
 }
 
 // pokeball styles
-.pokeball {  
+.block-pokeball {  
   width: $pokeball-size;
   height: $pokeball-size;
   border-radius: 100%;
@@ -86,8 +97,8 @@ $star3Count: 300;
 }
 
 // pokeball center button/ring
-.pokeball-button,
-.pokeball-ring {
+.block-pokeball__button,
+.block-pokeball__ring {
   position: absolute;
   width: $pokeball-size-inner;
   height: $pokeball-size-inner;
@@ -101,15 +112,15 @@ $star3Count: 300;
   animation: blink 0.2s alternate 19 0.2s, glowing 1s ease-in-out 5s;
 }
 
-.pokeball-ring {
+.block-pokeball__ring {
   width: 45px;
   height: 45px;
   border: $pokeball-border-size-inner solid $black;
 }
 
 // light reflections
-.pokeball-shine,
-.pokeball-shine-small {
+.block-pokeball__shine,
+.block-pokeball__shine-small {
   position: absolute;
   height: 10px;
   width: 30px;
@@ -121,16 +132,374 @@ $star3Count: 300;
   transform: rotate(-44deg);
 }
 
-.pokeball-shine-small {
+.block-pokeball__shine-small {
   width: 10px;
   left: 18px;
   top: 50px;
 }
+
 // pokeball animation
 .animate {
   animation: fall 0.6s ease-in-out, sway 2s ease-in-out infinite;
   transform-origin: bottom center;
   transition: all 0.5s ease;
+}
+
+
+/* Grass */
+// grass in the back
+.block-pokeball__grass-back {
+  position: absolute;
+  width: 400px;
+  .block-pokeball__grass-back-blade {
+    position: absolute;
+    background: $grass-back-color;
+    z-index: 2;
+    &:nth-child(1) {
+      height: $grass-blade-height;
+      width: 38px;
+      top: 185px;
+      left: -1px;
+      border-top-right-radius: $grass-blade-border-radius;
+    }
+    &:nth-child(2) {
+      left: 34px;
+      width: 24px;
+      height: $grass-blade-height;
+      top: 190px;
+      border-top-left-radius: $grass-blade-border-radius;
+    }
+    &:nth-child(3) {
+      left: 56px;
+      width: 37px;
+      height: $grass-blade-height;
+      top: 210px;
+      border-top-right-radius: $grass-blade-border-radius;
+    }
+    &:nth-child(4) {
+      left: 89px;
+      width: 17px;
+      height: $grass-blade-height;
+      top: 210px;
+      border-top-left-radius: $grass-blade-border-radius;
+    }
+    &:nth-child(5) {
+      left: 104px;
+      width: 43px;
+      height: $grass-blade-height;
+      top: 200px;
+      border-top-right-radius: $grass-blade-border-radius;
+    }
+    &:nth-child(6) {
+      left: 270px;
+      width: 47px;
+      height: $grass-blade-height;
+      top: 180px;
+      border-top-left-radius: $grass-blade-border-radius;
+    }
+    &:nth-child(7) {
+      left: 315px;
+      width: 27px;
+      height: $grass-blade-height;
+      top: 200px;
+      border-top-right-radius: $grass-blade-border-radius;
+    }
+    &:nth-child(8) {
+      left: 340px;
+      width: 27px;
+      height: $grass-blade-height;
+      top: 190px;
+      border-top-left-radius: $grass-blade-border-radius;
+    }
+    &:nth-child(9) {
+      left: 365px;
+      width: 40px;
+      height: $grass-blade-height;
+      top: 180px;
+      border-top-left-radius: $grass-blade-border-radius;
+    }
+    &:nth-child(10) {
+      left: 140px;
+      width: 50px;
+      height: $grass-blade-height;
+      top: 210px;
+      border-top-right-radius: $grass-blade-border-radius;
+    }
+    &:nth-child(11) {
+      left: 180px;
+      width: 40px;
+      height: $grass-blade-height;
+      top: 205px;
+      border-top-left-radius: $grass-blade-border-radius;
+    }
+    &:nth-child(12) {
+      left: 210px;
+      width: 40px;
+      height: $grass-blade-height;
+      top: 215px;
+      border-top-right-radius: $grass-blade-border-radius;
+    }
+    &:nth-child(13) {
+      left: 220px;
+      width: 40px;
+      height: $grass-blade-height;
+      top: 205px;
+      border-top-left-radius: $grass-blade-border-radius;
+    }
+    &:nth-child(14) {
+      left: 255px;
+      width: 25px;
+      height: $grass-blade-height;
+      top: 195px;
+      border-top-left-radius: $grass-blade-border-radius;
+    }
+  }
+}
+
+// grass in the middle
+.block-pokeball__grass-middle {
+  position: absolute;
+  width: 400px;
+  .block-pokeball__grass-middle-blade {
+    position: absolute;
+    background: $grass-middle-color;
+    z-index: 2;
+    &:nth-child(1) {
+      height: $grass-blade-height;
+      width: 45px;
+      top: 215px;
+      left: -1px;
+      border-top-right-radius: $grass-blade-border-radius;
+    }
+    &:nth-child(2) {
+      left: 40px;
+      width: 30px;
+      height: $grass-blade-height;
+      top: 205px;
+      border-top-right-radius: $grass-blade-border-radius;
+    }
+    &:nth-child(3) {
+      left: 66px;
+      width: 24px;
+      height: $grass-blade-height;
+      top: 230px;
+      border-top-left-radius: $grass-blade-border-radius;
+    }
+    &:nth-child(4) {
+      left: 89px;
+      width: 35px;
+      height: $grass-blade-height;
+      top: 230px;
+      border-top-left-radius: $grass-blade-border-radius;
+    }
+    &:nth-child(5) {
+      left: 115px;
+      width: 50px;
+      height: $grass-blade-height;
+      top: 220px;
+      border-top-left-radius: $grass-blade-border-radius;
+    }
+    &:nth-child(6) {
+      left: 280px;
+      width: 50px;
+      height: $grass-blade-height;
+      top: 210px;
+      border-top-left-radius: $grass-blade-border-radius;
+    }
+    &:nth-child(7) {
+      left: 320px;
+      width: 35px;
+      height: $grass-blade-height;
+      top: 210px;
+      border-top-left-radius: $grass-blade-border-radius;
+    }
+    &:nth-child(8) {
+      left: 350px;
+      width: 20px;
+      height: $grass-blade-height;
+      top: 220px;
+      border-top-right-radius: $grass-blade-border-radius;
+    }
+    &:nth-child(9) {
+      left: 360px;
+      width: 40px;
+      height: $grass-blade-height;
+      top: 210px;
+      border-top-left-radius: $grass-blade-border-radius;
+    }
+    &:nth-child(10) {
+      left: 260px;
+      width: 40px;
+      height: $grass-blade-height;
+      top: 210px;
+      border-top-right-radius: $grass-blade-border-radius;
+    }
+    &:nth-child(11) {
+      left: 240px;
+      width: 40px;
+      height: $grass-blade-height;
+      top: 220px;
+      border-top-left-radius: $grass-blade-border-radius;
+    }
+    &:nth-child(12) {
+      left: 220px;
+      width: 40px;
+      height: $grass-blade-height;
+      top: 230px;
+      border-top-right-radius: $grass-blade-border-radius;
+    }
+    &:nth-child(13) {
+      left: 200px;
+      width: 30px;
+      height: $grass-blade-height;
+      top: 240px;
+      border-top-right-radius: $grass-blade-border-radius;
+    }
+    &:nth-child(14) {
+      left: 160px;
+      width: 45px;
+      height: $grass-blade-height;
+      top: 240px;
+      border-top-right-radius: $grass-blade-border-radius;
+    }
+  }
+}
+
+// grass in the front
+.block-pokeball__grass-front {
+  position: absolute;
+  width: 400px;
+  .block-pokeball__grass-front-blade {
+    position: absolute;
+    background: $grass-front-color;
+    z-index: 3;
+    &:nth-child(1) {
+      height: $grass-blade-height;
+      width: 20px;
+      top: 230px;
+      left: -1px;
+      border-top-right-radius: $grass-blade-border-radius;
+    }
+    &:nth-child(2) {
+      height: $grass-blade-height;
+      width: 20px;
+      top: 250px;
+      left: 15px;
+      border-top-left-radius: $grass-blade-border-radius;
+    }
+    &:nth-child(3) {
+      height: $grass-blade-height;
+      width: 35px;
+      top: 240px;
+      left: 30px;
+      border-top-right-radius: $grass-blade-border-radius;
+    }
+    &:nth-child(4) {
+      height: $grass-blade-height;
+      top: 250px;
+      width: 35px;
+      left: 60px;
+      border-top-left-radius: $grass-blade-border-radius;
+    }
+    &:nth-child(5) {
+      height: $grass-blade-height;
+      top: 265px;
+      width: 40px;
+      left: 90px;
+      border-top-right-radius: $grass-blade-border-radius;
+    }
+    &:nth-child(6) {
+      height: $grass-blade-height;
+      top: 280px;
+      width: 20px;
+      left: 115px;
+      border-top-left-radius: $grass-blade-border-radius;
+    }
+    &:nth-child(7) {
+      height: $grass-blade-height;
+      top: 275px;
+      width: 40px;
+      left: 130px;
+      border-top-left-radius: $grass-blade-border-radius;
+    }
+    &:nth-child(8) {
+      height: $grass-blade-height;
+      top: 300px;
+      width: 20px;
+      left: 160px;
+      border-top-left-radius: $grass-blade-border-radius;
+    }
+    &:nth-child(9) {
+      height: $grass-blade-height;
+      top: 295px;
+      width: 40px;
+      left: 175px;
+      border-top-right-radius: $grass-blade-border-radius;
+    }
+    &:nth-child(10) {
+      height: $grass-blade-height;
+      top: 300px;
+      width: 15px;
+      left: 210px;
+      border-top-left-radius: $grass-blade-border-radius;
+    }
+    &:nth-child(11) {
+      height: $grass-blade-height;
+      top: 305px;
+      width: 30px;
+      left: 220px;
+      border-top-left-radius: $grass-blade-border-radius;
+    }
+    &:nth-child(12) {
+      height: $grass-blade-height;
+      top: 300px;
+      width: 45px;
+      left: 240px;
+      border-top-right-radius: $grass-blade-border-radius;
+    }
+    &:nth-child(13) {
+      height: $grass-blade-height;
+      top: 280px;
+      width: 30px;
+      left: 260px;
+      border-top-left-radius: $grass-blade-border-radius;
+    }
+    &:nth-child(14) {
+      height: $grass-blade-height;
+      top: 280px;
+      width: 20px;
+      left: 285px;
+      border-top-left-radius: $grass-blade-border-radius;
+    }
+    &:nth-child(15) {
+      height: $grass-blade-height;
+      top: 270px;
+      width: 40px;
+      left: 300px;
+      border-top-right-radius: $grass-blade-border-radius;
+    }
+    &:nth-child(16) {
+      height: $grass-blade-height;
+      top: 250px;
+      width: 40px;
+      left: 320px;
+      border-top-left-radius: $grass-blade-border-radius;
+    }
+    &:nth-child(17) {
+      height: $grass-blade-height;
+      top: 240px;
+      width: 20px;
+      left: 350px;
+      border-top-right-radius: $grass-blade-border-radius;
+    }
+    &:nth-child(18) {
+      height: $grass-blade-height;
+      top: 250px;
+      width: 45px;
+      left: 350px;
+      border-top-left-radius: $grass-blade-border-radius;
+    }
+  }
 }
 
 
@@ -140,7 +509,6 @@ $star3Count: 300;
   from {
     background: #e74c3c;
     box-shadow: 0px 0px 30px #e74c3c;
-    //border-color: #ef8b80;
   }
   to {
     background: $white;
@@ -189,4 +557,53 @@ $star3Count: 300;
     left: -2%;
     transform: rotate(-10deg);
   }
+}
+
+/* Stars */
+
+// Generates star field
+@function create-stars($n, $w, $h) {
+  $stars: "#{random($w)}vh #{random($h)}vh #FFF";
+  @for $i from 2 through $n {
+    $stars: "#{$stars} , #{random($w)}vh #{random($h)}vh #FFF";
+  }
+  @return unquote($stars);
+}
+
+@mixin star-template($start-count, $star-size, $scroll-speed) {
+  z-index: 1;
+  width: $star-size;
+  height: $star-size;
+  border-radius: 50%;
+  box-shadow: create-stars($start-count, $sky-radius, $sky-radius - 100);
+  animation: star-animation $scroll-speed linear infinite;
+  &:after {
+    content: " ";
+    top: -$star-start-offset;
+    width: $star-size;
+    height: $star-size;
+    border-radius: 50%;
+    position: absolute;
+    box-shadow: create-stars($start-count, $sky-radius*0.5, $sky-radius*0.8);
+  }
+}
+
+// star animations
+@keyframes star-animation {
+  0% {
+    transform: rotate(-20deg) translateX(-$sky-radius);
+  }
+  100% {
+    transform: rotate(-20deg) translateX($sky-radius);
+  }
+}
+
+.block__star-group-1 {
+  @include star-template($star-count-1, $star-size-1, $star-scroll-duration-1);
+}
+.block__star-group-2 {
+  @include star-template($star-count-2, $star-size-2, $star-scroll-duration-2);
+}
+.block__star-group-3 {
+  @include star-template($star-count-3, $star-size-3, $star-scroll-duration-3);
 }
