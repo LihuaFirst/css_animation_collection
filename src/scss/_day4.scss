@@ -1,0 +1,332 @@
+/* Day 4 Eggstraterrestrial
+ * Credit https://codepen.io/acupoftee/pen/LqLRjB
+ */
+
+$fly-egg-bg-color: #0f111d;
+$fly-egg-body-color: #fdfeff;
+$fly-egg-body-width: 245px;
+$fly-egg-body-height: 180px;
+$fly-egg-yolk-width: 140px;
+$fly-egg-yolk-height: 140px;
+$fly-egg-yolk-color: #ffdb10;
+$fly-egg-yolk-shadow: #ffcc24;
+$fly-egg-eye-color: #000;
+$fly-egg-eye-radius: 15px;
+$fly-egg-cheeks-color: #ff7e7e;
+
+#block-4 {
+  background: $fly-egg-bg-color;
+}
+ 
+#block-container-4 {
+  position: absolute;
+  left: 45%;
+  top: 50%;
+  animation: fly-egg-speed-up 3s ease-in-out infinite;
+}
+
+.block__fly-egg {
+  position: relative;
+  display: inline-block;
+  width: $fly-egg-body-width;
+  height: $fly-egg-body-height;
+  border-radius: 0 100px 100px 0;
+  background: $fly-egg-body-color;
+  right: 20px;
+  box-shadow: 0 0 20px $fly-egg-body-color;
+  .block__fly-egg-face {
+    position: absolute;
+    left: 35%;
+    top: 11%;
+    width: $fly-egg-yolk-width;
+    height: $fly-egg-yolk-height;
+    border-radius: 100%;
+    background: $fly-egg-yolk-color;
+    box-shadow: inset -10px 1px 0 $fly-egg-yolk-shadow;
+  }
+  .block__fly-egg-eyes {
+    position: relative;
+    top: 55px;
+    left: 38px;
+    width: $fly-egg-eye-radius;
+    height: $fly-egg-eye-radius;
+    border-radius: 100%;
+    background: $fly-egg-eye-color;
+    animation: fly-egg-eye-blink 2s infinite;
+    &::after {
+      content: "";
+      position: absolute;
+      left: 60px;
+      width: 15px;
+      height: 15px;
+      border-radius: 100%;
+      background: $fly-egg-eye-color;
+    }
+  }
+  .block__fly-egg-smile {
+    position: relative;
+    width: 10px;
+    height: 6px;
+    top: 55px;
+    left: 63px;
+    background: transparent;
+    border-bottom-left-radius: 50px;
+    border-bottom-right-radius: 50px;
+    border: 5px solid #000;
+    &::before {
+      content: "";
+      position: absolute;
+      left: -10px;
+      top: -5.5px;
+      width: 30px;
+      height: 7px;
+      background: $fly-egg-yolk-color;
+      border-radius: 100%;
+    }
+  }
+  .block__fly-egg-cheeks {
+    position: relative;
+    width: 12px;
+    height: 12px;
+    border-radius: 100%;
+    left: 25px;
+    top: 42px;
+    background: $fly-egg-cheeks-color;
+    &::after {
+      content: "";
+      position: absolute;
+      width: 12px;
+      height: 12px;
+      border-radius: 100%;
+      left: 83px;
+      background: $fly-egg-cheeks-color;
+    }
+  }
+  .block__fly-egg-shine {
+    position: relative;
+    width: 8px;
+    height: 20px;
+    border-radius: 200px;
+    background: #fff;
+    left: 110px;
+    top: -20px;
+    transform: rotate(-35deg);
+    &::after {
+      content: "";
+      position: absolute;
+      width: 8px;
+      height: 8px;
+      border-radius: 100%;
+      top: -12px;
+      right: 2px; 
+      background: #fff;
+    }
+  }  
+}
+.block__fly-egg-legs {
+  margin: 0;
+  padding: 0;
+  li {
+    list-style: none;
+    position: relative;
+    border-radius: 200px;
+    width: 80px;
+    height: 25.7px;
+  }
+  li:nth-child(odd) {
+    background: $fly-egg-body-color;
+  }  
+  li:nth-child(even) {
+    background: $fly-egg-bg-color;
+  }
+  li:nth-child(1) {
+    right: 40px;
+    animation: fly-egg-leg-trail1 1s ease-out infinite;
+    &::after {
+      content: "";
+      position: absolute;
+      opacity: 0;
+      width: 25.7px;
+      height: 25.7px;
+      background: $fly-egg-body-color;
+      box-shadow: 0 0 10px $fly-egg-body-color;  
+      border-radius: 100%;
+      animation: fly-egg-floating1 1.5s ease infinite;
+    }
+  }
+  li:nth-child(2) {
+    right: 30px;
+    animation: fly-egg-leg-trail2 1s ease-out infinite;
+  }
+  li:nth-child(3) {
+    right: 70px;
+    animation: fly-egg-leg-trail3 2s ease-out infinite;
+  }
+  li:nth-child(4) {
+    right: 60px;
+    animation: fly-egg-leg-trail4 0.9s ease-out infinite;
+  }
+  li:nth-child(5) {
+    right: 40px;
+    animation: fly-egg-leg-trail5 0.9s ease-out infinite;
+    &::after {
+      content: "";
+      position: absolute;
+      opacity: 0;
+      width: 25.7px;
+      height: 25.7px;
+      border-radius: 100%;
+      background: $fly-egg-body-color;
+      box-shadow: 0 0 10px $fly-egg-body-color;  
+      animation: fly-egg-floating2  1s ease infinite 2s;   
+    }
+  }
+  li:nth-child(6) {
+    right: 20px;
+    animation: fly-egg-leg-trail2 1s ease-out infinite;
+  }
+  
+  li:nth-child(7) {
+    right: 10px;
+    animation: fly-egg-leg-trail1 1s ease-out infinite;
+    &::after {
+      content: "";
+      position: absolute;
+      opacity: 0;
+      width: 25.7px;
+      height: 25.7px;
+      border-radius: 100%;
+      background: $fly-egg-body-color;
+      box-shadow: 0 0 10px $fly-egg-body-color;    
+      animation: fly-egg-floating3  1s ease infinite 0.5s;    
+    }
+  }  
+}
+
+
+/* Keyframes */
+
+@keyframes fly-egg-speed-up {
+  50% {
+    left: 65%;
+  }
+}
+
+@keyframes fly-egg-eye-blink {
+  0% {
+    transform: scaleY(1);
+  }
+  18% {
+    transform: scaleY(1);
+  }
+  20% {
+    transform: scaleY(0);
+  }
+  25% {
+    transform: scaleY(1);
+  }
+  38% {
+    transform: scaleY(1);
+  }
+  40% {
+    transform: scaleY(0);
+  }
+  45% {
+    transform: scaleY(1);
+  }
+  80% {
+    transform: scaleY(1);
+  }
+}
+
+@keyframes fly-egg-leg-trail1 {
+  50% {
+    right: 50px;
+  }
+}
+
+@keyframes fly-egg-leg-trail2 {
+  50% {
+    right: 10px;
+  }
+}
+
+@keyframes fly-egg-leg-trail3 {
+  50% {
+    right: 60px;
+  }
+}
+@keyframes fly-egg-leg-trail4 {
+  50% {
+    right: 50px;
+  }
+}
+
+@keyframes fly-egg-leg-trail5 {
+  50% {
+    right: 20px;
+  }
+}
+
+@keyframes fly-egg-leg-trail6 {
+  50% {
+    right: 70px;
+  }
+}
+
+
+@keyframes fly-egg-floating1 {
+  0% {
+    right: 50px;
+    opacity: 0;
+  }
+  50% {
+    right: 160px;
+    opacity: 1;
+  }
+  70% {
+    right: 160px;
+    opacity: 0;
+  }
+  100% {
+    right: 50px;
+    opacity: 0;
+  }
+}
+@keyframes fly-egg-floating2 {
+  0% {
+    right: 50px;
+    opacity: 0;
+  }
+  50% {
+    right: 100px;
+    opacity: 1;
+  }
+  70% {
+    right: 100px;
+    opacity: 0;
+  }
+  100% {
+    right: 50px;
+    opacity: 0;
+  }
+}
+
+@keyframes fly-egg-floating3 {
+  0% {
+    right: 0px;
+    opacity: 0;
+  }
+  50% {
+    right: 150px;
+    opacity: 1;
+  }
+  70% {
+    right: 150px;
+    opacity: 0;
+  }
+  100% {
+    right: 0px;
+    opacity: 0;
+  }
+}
