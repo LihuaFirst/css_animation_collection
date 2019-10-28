@@ -46,11 +46,6 @@ $shooting-star-size: 2px;
 #block-2 {
   background: $pokeball-bg;
   min-height: 430px;
-  *, 
-  ::after, 
-  ::before{
-    box-sizing: content-box;
-  }
 }
 
 .block__container--circle {
@@ -115,7 +110,7 @@ $shooting-star-size: 2px;
   border: $pokeball-border-size solid $black;
   border-radius: 100%;
   z-index: 3;
-  animation: blink 0.2s alternate 19 0.2s, glowing 1s ease-in-out 5s;
+  animation: block-pokeball-blink 0.2s alternate 19 0.2s, block-pokeball-glowing 1s ease-in-out 5s;
 }
 
 .block-pokeball__ring {
@@ -146,7 +141,7 @@ $shooting-star-size: 2px;
 
 // pokeball animation
 .animate {
-  animation: fall 0.6s ease-in-out, sway 2s ease-in-out infinite;
+  animation: block-pokeball-fall 0.6s ease-in-out, block-pokeball-sway 2s ease-in-out infinite;
   transform-origin: bottom center;
   transition: all 0.5s ease;
 }
@@ -511,7 +506,7 @@ $shooting-star-size: 2px;
 
 /* Keyframes */
 // blinking animation because we caught a pokemon!
-@keyframes blink {
+@keyframes block-pokeball-blink {
   from {
     background: #e74c3c;
     box-shadow: 0px 0px 30px #e74c3c;
@@ -521,7 +516,7 @@ $shooting-star-size: 2px;
   }
 }
 // glowing animation, because it's ours!
-@keyframes glowing {
+@keyframes block-pokeball-glowing {
   50% {
     box-shadow: 0px 0px 60px #fff;
     border-color: #595959;
@@ -529,7 +524,7 @@ $shooting-star-size: 2px;
 }
 
 // fall anination with bounces
-@keyframes fall {
+@keyframes block-pokeball-fall {
   0% {
     top: -110px;
   }
@@ -550,7 +545,7 @@ $shooting-star-size: 2px;
   }
 }
 // pokeball sway keyframes
-@keyframes sway {
+@keyframes block-pokeball-sway {
   0% {
     left: -2%;
     transform: rotate(-10deg);

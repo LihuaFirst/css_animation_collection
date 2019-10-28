@@ -1,22 +1,60 @@
-@import 'day1';
-@import 'day2';
+/* Fonts */
+
+@import url('https://fonts.googleapis.com/css?family=Roboto&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Roboto+Mono&display=swap');
+
+body {
+  font-family: 'Roboto', sans-serif;
+  *,
+  ::after,
+  ::before {
+    box-sizing: content-box;
+  }
+}
+
+.container {
+  max-width: 1024px;
+  margin: 0 auto;
+}
+
+code {
+  //font-family: 'Press Start 2P', cursive;
+  font-family: 'Roboto Mono', monospace;
+  font-size: 0.9rem;
+  color: #e83e8c;
+  word-break: break-word;  
+}
 
 .block {
-	position: relative;
-	min-height: 300px;
+  position: relative;
+  min-height: 450px;
 }
 
 .block__container {
-	position: absolute;
-	top: 50%;
-	left: 50%;
-	transform: translate(-50%, -50%);
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
 }
 
+
 /*  helper classes */
-.absolute-center {
+
+.center-flex {
   display: flex; // make us of Flexbox
   align-items: center; // does vertically center the desired content
   justify-content: center; // horizontally centers single line items
   text-align: center; // optional, but helps horizontally center text that breaks into multiple lines
 }
+
+.center-absolute {
+  position: absolute;
+  white-space: nowrap;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+}
+
+@import 'day1';
+@import 'day2';
+@import 'day3';

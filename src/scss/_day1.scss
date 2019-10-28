@@ -11,10 +11,6 @@ $white: #fff;
 $hello-start-color: #da22ff;
 $hello-end-color: #9733ee;
 
-/* Fonts */
-
-@import url('https://fonts.googleapis.com/css?family=Press+Start+2P&display=swap');
-
 /* Mixins */
 
 // text gradient
@@ -71,7 +67,7 @@ $hello-end-color) {
   border: 10px;
   cursor: pointer;
   filter: drop-shadow(3px 7px 0px $grey-light);
-  animation: widthpop 2s ease-out;
+  animation: block-hello-widthpop 2s ease-out;
 }
 
 // completed speech bubble
@@ -100,9 +96,9 @@ $hello-end-color) {
 }
 
 .block-hello__text {
-  font-family: 'Press Start 2P', cursive;
-  font-size: 1.75rem;
-  line-height: 2rem;
+  font-family: 'Roboto Mono', monospace;
+  font-size: 2.5rem;
+  line-height: 2.5rem;
   text-align: center;
   //vertical-align: middle;
   filter: drop-shadow(2px 7px 0px $grey-light);
@@ -110,9 +106,9 @@ $hello-end-color) {
   @include text-background('../assets/img/bg_purple.jpg');
   /* animate fade in*/
   opacity: 0;
-  animation: fadein 2s 0.8s forwards;
+  animation: block-hello-fadein 2s 0.8s forwards;
   /* animate moving background */
-  //animation: bgmoving 10s infinite ease-in;
+  //animation: block-hello-bgmoving 10s infinite ease-in;
 }
 
 .block-hello__icon {
@@ -128,7 +124,7 @@ $hello-end-color) {
 
 .em-spock-hand,
 .em-hand {
-  animation: handwave 1s infinite alternate ease-out;
+  animation: block-hello-handwave 1s infinite alternate ease-out;
   @include transform-origin(50% 100%);
 }
 
@@ -145,7 +141,7 @@ $hello-end-color) {
 /* Keyframes */
 
 // hand wave animation
-@keyframes handwave {
+@keyframes block-hello-handwave {
   0% {
     // rotate hand down
     @include rotate-hand(-30deg);
@@ -157,7 +153,7 @@ $hello-end-color) {
 }
 
 // fade in
-@keyframes fadein {
+@keyframes block-hello-fadein {
   0% {
     opacity: 0;
   }
@@ -170,7 +166,7 @@ $hello-end-color) {
 }
 
 // background moving
-@keyframes bgmoving {
+@keyframes block-hello-bgmoving {
   0% {
     background-position: 0 0;
   }
@@ -183,7 +179,7 @@ $hello-end-color) {
 }
 
 // width pop 
-@keyframes widthpop {
+@keyframes block-hello-widthpop {
   0% {
     transform: scaleX(0.2)
   }
@@ -196,7 +192,7 @@ $hello-end-color) {
 }
 
 // moves the speech bubble tooltip
-@keyframes movetooltip {
+@keyframes block-hello-movetooltip {
   0% {
     top: 50px;
     left: -10px;

@@ -12,7 +12,7 @@
   <meta author="Lihua First">
 
   <!-- vendor styles -->
-  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+<!--  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">-->
 
   <!-- font awesome -->
   <script src="https://kit.fontawesome.com/255fca5b41.js" crossorigin="anonymous"></script>
@@ -36,7 +36,7 @@
 
         <div class="block" id="block-1">
           <div class="block__container">
-            <div class="block-hello__speechbubble absolute-center">
+            <div class="block-hello__speechbubble center-flex">
               <h3 class="block-hello__text">Hello World<span class="block-hello__icon"><i class="em em-hand" aria-role="presentation" aria-label="RAISED HAND"></i><i class="em em-spock-hand" aria-role="presentation" aria-label="RAISED HAND WITH PART BETWEEN MIDDLE AND RING FINGERS"></i></span></h3>
             </div>
           </div>
@@ -46,88 +46,136 @@
           <li>Knockout text: experiment with <code>background-clip:text</code>&nbsp;<i class="fas fa-flask"></i> using gradient as text background </li>
           <li>Hand wave: keyframe transform rotate down and up</li>
           <li>Switch icon when hover over container </li>
-          <li>Absolute center using flexbox <code>.absolute-center</code></li>
+          <li>Absolute center using flexbox <code>.center-flex</code></li>
         </ul>
       </section>
 
       <section id="section-2">
         <h2>Day 2: Pokeball </h2>
         <div class="block" id="block-2">
-            <div class="block__container block__container--circle">
-              <div class="block-pokeball__grass-back">
-                <div class="block-pokeball__grass-back-blade"></div>
-                <div class="block-pokeball__grass-back-blade"></div>
-                <div class="block-pokeball__grass-back-blade"></div>
-                <div class="block-pokeball__grass-back-blade"></div>
-                <div class="block-pokeball__grass-back-blade"></div>
-                <div class="block-pokeball__grass-back-blade"></div>
-                <div class="block-pokeball__grass-back-blade"></div>
-                <div class="block-pokeball__grass-back-blade"></div>
-                <div class="block-pokeball__grass-back-blade"></div>
-                <div class="block-pokeball__grass-back-blade"></div>
-                <div class="block-pokeball__grass-back-blade"></div>
-                <div class="block-pokeball__grass-back-blade"></div>
-                <div class="block-pokeball__grass-back-blade"></div>
-                <div class="block-pokeball__grass-back-blade"></div>
-              </div>
-              <div class="block-pokeball__grass-middle">
-                <div class="block-pokeball__grass-middle-blade"></div>
-                <div class="block-pokeball__grass-middle-blade"></div>
-                <div class="block-pokeball__grass-middle-blade"></div>
-                <div class="block-pokeball__grass-middle-blade"></div>
-                <div class="block-pokeball__grass-middle-blade"></div>
-                <div class="block-pokeball__grass-middle-blade"></div>
-                <div class="block-pokeball__grass-middle-blade"></div>
-                <div class="block-pokeball__grass-middle-blade"></div>
-                <div class="block-pokeball__grass-middle-blade"></div>
-                <div class="block-pokeball__grass-middle-blade"></div>
-                <div class="block-pokeball__grass-middle-blade"></div>
-                <div class="block-pokeball__grass-middle-blade"></div>
-                <div class="block-pokeball__grass-middle-blade"></div>
-                <div class="block-pokeball__grass-middle-blade"></div>
-                <div class="block-pokeball__grass-middle-blade"></div>
-              </div>
-              <div class="block-pokeball__grass-front">
-                <div class="block-pokeball__grass-front-blade"></div>
-                <div class="block-pokeball__grass-front-blade"></div>
-                <div class="block-pokeball__grass-front-blade"></div>
-                <div class="block-pokeball__grass-front-blade"></div>
-                <div class="block-pokeball__grass-front-blade"></div>
-                <div class="block-pokeball__grass-front-blade"></div>
-                <div class="block-pokeball__grass-front-blade"></div>
-                <div class="block-pokeball__grass-front-blade"></div>
-                <div class="block-pokeball__grass-front-blade"></div>
-                <div class="block-pokeball__grass-front-blade"></div>
-                <div class="block-pokeball__grass-front-blade"></div>
-                <div class="block-pokeball__grass-front-blade"></div>
-                <div class="block-pokeball__grass-front-blade"></div>
-                <div class="block-pokeball__grass-front-blade"></div>
-                <div class="block-pokeball__grass-front-blade"></div>
-                <div class="block-pokeball__grass-front-blade"></div>
-                <div class="block-pokeball__grass-front-blade"></div>
-                <div class="block-pokeball__grass-front-blade"></div>
-              </div>
-              
-              <div class="relative-center block-pokeball animate">
-                <div class="block-pokeball__button"></div>
-                <div class="block-pokeball__ring"></div>
-                <div class="block-pokeball__shine"></div>
-                <div class="block-pokeball__shine-small"></div>
-              </div>
-              <div class="block__star-group-1"></div>
-              <div class="block__star-group-2"> </div>
-              <div class="block__star-group-3"></div>
-              <div class="block__shooting-stars-container">
-                <div class="block__shooting-stars"></div>
-              </div>
-              
+          <div class="block__container block__container--circle">
+            <div class="block-pokeball__grass-back">
+              <div class="block-pokeball__grass-back-blade"></div>
+              <div class="block-pokeball__grass-back-blade"></div>
+              <div class="block-pokeball__grass-back-blade"></div>
+              <div class="block-pokeball__grass-back-blade"></div>
+              <div class="block-pokeball__grass-back-blade"></div>
+              <div class="block-pokeball__grass-back-blade"></div>
+              <div class="block-pokeball__grass-back-blade"></div>
+              <div class="block-pokeball__grass-back-blade"></div>
+              <div class="block-pokeball__grass-back-blade"></div>
+              <div class="block-pokeball__grass-back-blade"></div>
+              <div class="block-pokeball__grass-back-blade"></div>
+              <div class="block-pokeball__grass-back-blade"></div>
+              <div class="block-pokeball__grass-back-blade"></div>
+              <div class="block-pokeball__grass-back-blade"></div>
             </div>
+            <div class="block-pokeball__grass-middle">
+              <div class="block-pokeball__grass-middle-blade"></div>
+              <div class="block-pokeball__grass-middle-blade"></div>
+              <div class="block-pokeball__grass-middle-blade"></div>
+              <div class="block-pokeball__grass-middle-blade"></div>
+              <div class="block-pokeball__grass-middle-blade"></div>
+              <div class="block-pokeball__grass-middle-blade"></div>
+              <div class="block-pokeball__grass-middle-blade"></div>
+              <div class="block-pokeball__grass-middle-blade"></div>
+              <div class="block-pokeball__grass-middle-blade"></div>
+              <div class="block-pokeball__grass-middle-blade"></div>
+              <div class="block-pokeball__grass-middle-blade"></div>
+              <div class="block-pokeball__grass-middle-blade"></div>
+              <div class="block-pokeball__grass-middle-blade"></div>
+              <div class="block-pokeball__grass-middle-blade"></div>
+              <div class="block-pokeball__grass-middle-blade"></div>
+            </div>
+            <div class="block-pokeball__grass-front">
+              <div class="block-pokeball__grass-front-blade"></div>
+              <div class="block-pokeball__grass-front-blade"></div>
+              <div class="block-pokeball__grass-front-blade"></div>
+              <div class="block-pokeball__grass-front-blade"></div>
+              <div class="block-pokeball__grass-front-blade"></div>
+              <div class="block-pokeball__grass-front-blade"></div>
+              <div class="block-pokeball__grass-front-blade"></div>
+              <div class="block-pokeball__grass-front-blade"></div>
+              <div class="block-pokeball__grass-front-blade"></div>
+              <div class="block-pokeball__grass-front-blade"></div>
+              <div class="block-pokeball__grass-front-blade"></div>
+              <div class="block-pokeball__grass-front-blade"></div>
+              <div class="block-pokeball__grass-front-blade"></div>
+              <div class="block-pokeball__grass-front-blade"></div>
+              <div class="block-pokeball__grass-front-blade"></div>
+              <div class="block-pokeball__grass-front-blade"></div>
+              <div class="block-pokeball__grass-front-blade"></div>
+              <div class="block-pokeball__grass-front-blade"></div>
+            </div>
+
+            <div class="relative-center block-pokeball animate">
+              <div class="block-pokeball__button"></div>
+              <div class="block-pokeball__ring"></div>
+              <div class="block-pokeball__shine"></div>
+              <div class="block-pokeball__shine-small"></div>
+            </div>
+            <div class="block__star-group-1"></div>
+            <div class="block__star-group-2"> </div>
+            <div class="block__star-group-3"></div>
+            <div class="block__shooting-stars-container">
+              <div class="block__shooting-stars"></div>
+            </div>
+
           </div>
+        </div>
         <ul>
           <li>Use Pug to programmatically generate html</li>
           <li>Use CSS shapes to draw complex images</li>
           <li>Use Sass <code>@function</code>, interpolation <code>#{$stars}</code> to generate random box-shadow strings</li>
         </ul>
+      </section>
+
+      <section id="section-3">
+        <h2>Day 3: Egg Head in Love </h2>
+        <div class="block" id="block-3">
+          <div class="block__container">
+              <div class="block__egg">
+                <ul class="block__egg-legs">
+                  <li></li>
+                  <li></li>
+                  <li></li>
+                  <li></li>
+                  <li></li>
+                  <li></li>
+                  <li></li>
+                  <div class="block__egg-face">
+                    <div class="block__egg-eyes"></div>
+                    <div class="block__egg-smile"></div>
+                    <div class="block__egg-cheeks"></div>
+                    <div class="block__egg-shine"></div>
+                  </div>
+                </ul>
+              </div>
+              <div class="block__egg-shadow" id="egg-shadow"></div>
+              <div class="block__egg-heart">
+                <div class="block__egg-heart-shine"></div>
+              </div>
+              <div class="block__ghost">
+                <ul class="block__ghost-legs">
+                  <li></li>
+                  <li></li>
+                  <li></li>
+                  <li></li>
+                  <li></li>
+                  <li></li>
+                  <li></li>
+                  <li></li>
+                  <li></li>
+                </ul>
+                <div class="block__ghost-face">
+                  <div class="block__ghost-eyes"></div>
+                  <div class="block__ghost-smile"></div>
+                  <div class="block__ghost-cheeks"></div>
+                </div>
+              </div>
+              <div class="block__ghost-shadow" id="ghost-shadow"></div>
+            </div>
+          </div>
       </section>
 
     </div>
@@ -138,9 +186,9 @@
   <!-- Do not use jQuery slim: removed ajax-->
   <script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
 
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+ <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
 
-  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>-->
 
   <!-- customize js -->
   <script src="js/main.min.js" defer></script>
