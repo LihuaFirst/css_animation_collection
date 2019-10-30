@@ -267,6 +267,25 @@ $avatar-cheeks-color: #b51231;
   }
 }
 
+.block__avatar-glasses-shine {
+  position: absolute;
+  &::before, 
+  &::after  {
+    content: "";
+    position: absolute;
+    width: 20px;
+    height: 100px;
+    background: white;
+    opacity: 0.3;
+    transform: rotate(30deg);
+    top: -25px;
+    left: 5px;
+  }
+  &::after {
+    width: 5px;
+    left: 30px;
+  }
+}
 .block__avatar-mouth {
   position: absolute;
   width: 30px;
