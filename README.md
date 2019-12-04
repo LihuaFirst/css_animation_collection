@@ -1,5 +1,6 @@
-# css_animation_collection
+# css animation collection
 
+Credit Tee Diang
 
 https://dev.to/acupoftee/25-days-of-css-animations-teaching-myself-css-through-motion-design-4l10
 
